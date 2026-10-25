@@ -36,7 +36,7 @@ Dispositivos en SW-Lab1-SARV:       Dispositivos en SW-Lab2-SARV:
       Puerto Fa0/9
 
 Imagen de la topología con cables
-
+![image alt](https://github.com/amaysole209-afk/Portafolio-Ccna2026/blob/fce8d839ae0b7e444a45c006c38e0eaf7c9f7bfe/Topologias.png)
 
 2.-Crear la tabla de direccionamiento.
 
