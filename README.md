@@ -70,12 +70,23 @@ Tabla3.Segmentos de red y VLAN
  3.-Asignar nombre a los dispositivos con las iniciales SARV
 En este paso asigné nombres personalizados a los routers y switches, agregando mis iniciales SARV al final para identificar cada dispositivo.
 
-R1-Core-SARV
+Router-R1-Core-SARV
+
 Router>enable
 Router#configure terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
 Router(config)#hostname R1-Core-SARV
-R1-Core-LuisMGL(config)#end
+R1-Core-SARVL(config)#end
+
+Switch Central-SW-Core-SARV
+
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SW-Core-SARV
+SW-Core-SARV(config)#
+
+
 
 
 
