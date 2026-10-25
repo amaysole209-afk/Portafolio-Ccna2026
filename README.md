@@ -34,6 +34,3 @@ Dispositivos en SW-Lab1-SARV:       Dispositivos en SW-Lab2-SARV:
       Fa0/7                               Fa0/7
   └── VLAN 99: 1 PC Gestión
       Puerto Fa0/9
-Markdown
-## Evidencia
-![Topología de red.png](./Topologia.png]
