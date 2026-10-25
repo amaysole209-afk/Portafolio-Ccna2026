@@ -37,6 +37,7 @@ Dispositivos en SW-Lab1-SARV:       Dispositivos en SW-Lab2-SARV:
 Imagen de la topología con cables
 
 2.-Crear la tabla de direccionamiento.
+```Markdown
 | VLAN | Nombre | Dirección de red | Máscara de subred | Prefijo | Uso |
 |---:|---|---|---|---|---|
 | 10 | Administración | 192.168.10.0 | 255.255.255.0 | /24 | Equipos de Administración |
