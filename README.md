@@ -1,7 +1,7 @@
 # Portafolio-Ccna2026
 Crear el diagrama y cablear acorde a la topología
 1. Diagrama de la topología
-2. 
+   
 ```text
                  [ R1-Core-SARV (SARV) ]
                            |
