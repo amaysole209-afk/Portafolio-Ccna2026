@@ -37,12 +37,11 @@ Dispositivos en SW-Lab1-SARV:       Dispositivos en SW-Lab2-SARV:
 Imagen de la topología con cables
 
 2.-Crear la tabla de direccionamiento.
-```Markdown
 | VLAN | Nombre | Dirección de red | Máscara de subred | Prefijo | Uso |
-|---:|---|---|---|---|---|
+|---|---|---|---|---|---|
 | 10 | Administración | 192.168.10.0 | 255.255.255.0 | /24 | Equipos de Administración |
 | 20 | Laboratorios | 192.168.20.0 | 255.255.255.0 | /24 | Equipos de Laboratorios |
 | 30 | Dirección | 192.168.30.0 | 255.255.255.0 | /24 | Equipos de Dirección |
 | 99 | Gestión | 192.168.99.0 | 255.255.255.0 | /24 | Administración de switches mediante SVI |
-| 111 | Nativa | No aplica | No aplica | No aplica | VLAN nativa de los enlaces troncales |
-| 999 | Blackhole | No aplica | No aplica | No aplica | VLAN para puertos no utilizados y apagados |
+| 111 | Nativa | No aplica | No aplica | No aplica | Enlaces troncales |
+| 999 | Blackhole | No aplica | No aplica | No aplica | Puertos no utilizados y apagados |
