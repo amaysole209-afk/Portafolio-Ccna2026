@@ -370,8 +370,6 @@ Solución2: Busque las fotos q tome cuando puse la contraseña y fue que la enco
 
 
 
-![image alt](https://github.com/amaysole209-afk/Portafolio-Ccna2026/blob/main/Topologias.png?raw=true)
-
 
 
 
