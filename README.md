@@ -67,8 +67,15 @@ Tabla3.Segmentos de red y VLAN
 | 99   | Gestión        | 192.168.99.0/24            | 255.255.255.0 | Administración de switches       |
 | 111  | Nativa         | Sin dirección IP asignada  | N/A           | VLAN nativa de enlaces troncales |
 | 999  | Blackhole      | Sin dirección IP asignada  | N/A           | Puertos no utilizados y apagados |
+ 3.-Asignar nombre a los dispositivos con las iniciales SARV
+En este paso asigné nombres personalizados a los routers y switches, agregando mis iniciales SARV al final para identificar cada dispositivo.
 
-
+R1-Core-SARV
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R1-Core-SARV
+R1-Core-LuisMGL(config)#end
 
 
 
