@@ -377,6 +377,6 @@ Solución2: Busque las fotos q tome cuando puse la contraseña y fue que la enco
 
 
 
-<img width="457" height="408" alt="image" src="https://github.com/user-attachments/assets/2c6eecc7-3e99-4426-8eb2-eb6e95df8fe5" />
+
 
 
