@@ -67,6 +67,7 @@ Tabla3.Segmentos de red y VLAN
 | 99   | Gestión        | 192.168.99.0/24            | 255.255.255.0 | Administración de switches       |
 | 111  | Nativa         | Sin dirección IP asignada  | N/A           | VLAN nativa de enlaces troncales |
 | 999  | Blackhole      | Sin dirección IP asignada  | N/A           | Puertos no utilizados y apagados |
+
  3.-Asignar nombre a los dispositivos con las iniciales SARV
 En este paso asigné nombres personalizados a los routers y switches, agregando mis iniciales SARV al final para identificar cada dispositivo.
 
@@ -84,7 +85,49 @@ Switch>enable
 Switch#configure terminal
 Enter configuration commands, one per line.  End with CNTL/Z.
 Switch(config)#hostname SW-Core-SARV
-SW-Core-SARV(config)#
+SW-Core-SARV(config)#end
+
+Switch 1-SW-Lab1-SARV
+
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SW-Lab1-SARV
+SW-Lab1-SARVL(config)end
+
+Switch 2-SW-Lab2-SARV
+
+Switch>enable
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname SW-Lab2-SARV
+SW-Lab2-SARVL(config)end
+
+4.-Configuracion básica de sw y router de contraseña y mensaje
+En este paso configuré las contraseñas de seguridad en los routers y switches utilizando `cisco123` para el acceso al modo privilegiado, la consola y las líneas VTY. También activé el cifrado de las contraseñas con el comando `cisco123` y configuré el mensaje MOTD **“ACCESO RESTRINGIDO”** como advertencia al ingresar.
+
+Contraseña Privilegeado use:
+enable
+config
+enable secret cisco123
+service password-encryption
+banner motd #ACCESO RESTRINGIDO
+
+Para configurar una contraseña en la consola use:
+
+line console 0
+password cisco122
+login
+exit
+Contraseña de acceso remoto use:
+
+line vty 0 4
+password cisco1232
+login
+exit
+
+
+
 
 
 
