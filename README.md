@@ -34,6 +34,7 @@ Dispositivos en SW-Lab1-SARV:       Dispositivos en SW-Lab2-SARV:
       Fa0/7                               Fa0/7
   └── VLAN 99: 1 PC Gestión
       Puerto Fa0/9
+
 Imagen de la topología con cables
 
 
@@ -125,7 +126,28 @@ line vty 0 4
 password cisco1232
 login
 exit
+5.-Crear Vlans
 
+configure terminal
+vlan 10
+ name Administracion
+exit
+vlan 20
+ name Laboratorios
+exit
+vlan 30
+ name Direccion
+exit
+vlan 99
+ name Gestion
+exit
+vlan 111
+ name Nativa
+exit
+vlan 999
+ name Blackhole
+exit
+end
 
 
 
