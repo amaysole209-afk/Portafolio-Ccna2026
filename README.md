@@ -126,6 +126,7 @@ line vty 0 4
 password cisco1232
 login
 exit
+
 5.-Crear Vlans
 
 configure terminal
@@ -149,9 +150,218 @@ vlan 999
 exit
 end
 
+Con este comando verifique si se crearon y debe ver las VLAN 10, 20, 30, 99, 111 y 999 con sus respectivos nombres:
+
+show vlan brief  o tambien sh vlan brief 
+
+6.-Asignar los puertos a las VLANS.
+
+°SW-Lab1-SARV
+
+enable
+configure terminal
+
+interface range fa0/1-3
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range fa0/4-6
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range fa0/7
+switchport mode access
+switchport access vlan 30
+exit
+
+end
+
+°SW-Lab2-SARV
+
+enable
+configure terminal
+
+interface range fa0/1-3
+switchport mode access
+switchport access vlan 10
+exit
+
+interface range fa0/4-6
+switchport mode access
+switchport access vlan 20
+exit
+
+interface range fa0/7
+switchport mode access
+switchport access vlan 30
+exit
+
+end
+SW-Core-SARV
+En este caso, el switch central tiene una PC de gestión conectada al puerto Fa0/9, y ese puerto debe pertenecer a la VLAN 99 (Gestión).
+
+enable
+configure terminal
+interface fastEthernet 0/9
+switchport mode access
+switchport access vlan 99
+no shutdown
+exit
+end
+FOTO DE PACKET TRACER
+
+7.- Verificar la configuracion de la VLANs
+
+En SW-Core-SARV: Se verificó la creación de las VLAN y la asignación de los puertos. Se comprobó que el puerto Fa0/9 pertenece a la VLAN 99, destinada a la PC de gestión.
+imagen
+
+En SW-Lab1-SARV: Se verificó la creación de las VLAN y la asignación de los puertos correspondientes.
+Imagen
+
+En SW-Core-SARV: : Se comprobó que las VLAN estén creadas y que los puertos estén asignados correctamente.
+IMAGEN
+8.- Habilitar los enlaces troncales.
+SW-Core-SARV
+
+enable
+configure terminal
+
+interface Gig0/1
+switchport mode trunk
+switchport trunk native vlan 111
+switchport trunk allowed vlan 10,20,30,99,111
+no shutdown
+exit
+
+interface Fa0/24
+switchport mode trunk
+switchport trunk native vlan 111
+switchport trunk allowed vlan 10,20,30,99,111
+no shutdown
+exit
+
+interface Fa0/23
+switchport mode trunk
+switchport trunk native vlan 111
+switchport trunk allowed vlan 10,20,30,99,111
+no shutdown
+exit
+
+end
+IMAGEN
+
+SW-Lab1-SARV
+
+enable
+configure terminal
+interface fa0/24
+switchport mode trunk
+switchport trunk native vlan 111
+switchport trunk allowed vlan 10,20,30,99,111
+no shutdown
+exit
+end
+IMAGEN
+
+SW-Core-SARV
+
+enable
+configure terminal
+interface fa0/23
+switchport mode trunk
+switchport trunk native vlan 111
+switchport trunk allowed vlan 10,20,30,99,111
+no shutdown
+exit
+end
+IMAGEN
+
+9.- Verificar la configuración de los enlaces troncales
+imagen de los 3 switches
+
+10.-Guardar la configuración: escribe este código en la CLI de cada switch (SW-Lab1 y SW-Lab2): 
+
+enable
+copy running-config startup-config
+Destination filename [startup-config]?
+[OK]
+
+11.-Configurar la subinterfaces en el router.
+
+enable
+configure terminal
+interface gigabitEthernet0/0
+no shutdown
+exit
+interface gigabitEthernet0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.30
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.99
+encapsulation dot1Q 99
+ip address 192.168.99.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.111
+encapsulation dot1Q 111 native
+ip address 192.168.111.1 255.255.255.0
+exit
+end
+
+IMAGEN
+
+12.-Asignar direccionamiento IP y encapsulamiento Dot1Q
+
+enable
+configure terminal
+interface gigabitEthernet0/0
+no shutdown
+exit
+interface gigabitEthernet0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.30
+encapsulation dot1Q 30
+ip address 192.168.30.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.99
+encapsulation dot1Q 99
+ip address 192.168.99.1 255.255.255.0
+exit
+interface gigabitEthernet0/0.111
+encapsulation dot1Q 111 native
+ip address 192.168.111.1 255.255.255.0
+exit
+end
+
+IMAGEN
+
+13.-Verificar conectividad con Ping
+
+IMAGENES DE LOS PINGNS
 
 
+14.-Diario de Aprendizaje y Troubleshooting
 
+¿Cuál fue el mayor reto técnico que enfrentaste en esta unidad?
+Fue configurar las subinterfaces del router con Dot1Q porque tenia q relacionar bien cada VLANS con direccion ip y lograr que todas las computadoras pudieran comunicarse (Hacer ping)
 
-
-
+Bitácora de Errores
+Error 1: Fue que al asignar nombres a los switches me equivoque de nombres
+Soluccion1: Tuve que hacer de nuevo el codigo para asignar el nombre fue que investigue y al darme cuenta era el mismo codigo
+Error 2: No sabia cual era la contraseña que puse a mi switch 1
+Solución2: Busque las fotos q tome cuando puse la contraseña y fue que la encontre ,pero primero no me agarraba y fue que la puse mal 
